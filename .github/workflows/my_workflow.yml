@@ -24,9 +24,9 @@ jobs:
       - name: Run test coverage
         run: |
           make test-coverage
-      - name: SonarQubeScan
-        uses: SonarSource/sonarqube-scan-action@v5
-        env:
+#      - name: SonarQubeScan
+#        uses: SonarSource/sonarqube-scan-action@v5
+#        env:
 #          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #        with:
 #          args: >
