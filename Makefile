@@ -1,14 +1,30 @@
 install:
 	uv sync
-gendiff:
-	uv run gendiff
+
+run:
+	uv run gendiff --format json tests/test_data/file1_deep.yaml tests/test_data/file2_deep.yaml
+
+test:
+	uv run pytest
+
+test-coverage:
+	uv run pytest --cov=gendiff --cov-report=xml
+
+lint:
+	uv run ruff check
+
+check: test lint
+
 build:
 	uv build
+
 package-install:
 	uv tool install dist/*.whl
-make lint:
-	uv run ruff check gendiff
-make tests:
-	uv run pytest
-make test-coverage:
-	uv run pytest --cov=gendiff --cov-report=xml
+
+reinstall:
+	uv tool install --force dist/*.whl
+
+uninstall:
+	uv tool uninstall hexlet-code
+
+.PHONY: install test lint selfcheck check build package-install reinstall uninstall
