@@ -18,3 +18,6 @@ make tests:
 
 make test-coverage:
 	uv run pytest --cov=gendiff --cov-report=xml
+
+check:
+	tests lint
