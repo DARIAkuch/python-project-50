@@ -2,7 +2,7 @@ install:
 	uv sync
 
 run:
-	uv run gendiff --format json tests/test_data/file1_deep.yaml tests/test_data/file2_deep.yaml
+	uv run gendiff
 
 test:
 	uv run pytest
@@ -12,7 +12,7 @@ test-coverage:
 
 
 lint:
-	uv run ruff check
+	uv run ruff check gendiff
 
 check: test lint
 
